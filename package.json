@@ -1,0 +1,13 @@
+{
+  "author": "bendyorke",
+  "name": "all-in",
+  "description": "require all files in a directory",
+  "version": "0.1.0",
+  "repository": {
+    "url": ""
+  },
+  "main": "all-in.js",
+  "engines": {
+    "node": "*"
+  }
+}
