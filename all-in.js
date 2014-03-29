@@ -24,7 +24,8 @@ module.exports = function(dirname, options) {
       return (
         (hidden     || file.indexOf('.') !== 0) &&
         (index      || file !== 'index.js')     &&
-        (!filetypes || regex.test(file))
+        (!filetypes || regex.test(file))        &&
+        (!filter    || new RegExp(filter).test(file))
       )
     })
     .forEach(function(file) {
