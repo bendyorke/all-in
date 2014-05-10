@@ -40,9 +40,9 @@ module.exports = function(dirname, options) {
 }
 
 function findFormat(input) {
-  if(input === Object        || /array/i.test(input) ) return "obj"
-  if(input === Array         || /object/i.test(input)) return "arr"
-  if(typeof input === String && /list/i.test(input)  ) return "list"
+  if(input === Object || /object/i.test(input)) return "obj"
+  if(input === Array  ||  /array/i.test(input)) return "arr"
+  if(                      /list/i.test(input)) return "list"
   return "obj"
 }
 

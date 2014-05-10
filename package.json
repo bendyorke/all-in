@@ -2,9 +2,9 @@
   "author": "bendyorke",
   "name": "all-in",
   "description": "require all files in a directory",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "repository": {
-    "url": ""
+    "url": "https://github.com/bendyorke/all-in"
   },
   "main": "all-in.js",
   "engines": {
