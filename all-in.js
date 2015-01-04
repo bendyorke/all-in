@@ -3,7 +3,8 @@ var fs   = require('fs')
 
 module.exports = function(dirname, options) {
   options || (options = {})
-  var run       = options.run       || null
+  var map       = typeof options.map === 'function' ? options.map : null
+    , run       = options.run       || null
     , runScope  = options.runScope  || null
     , runArgs   = options.runArgs   || []
     , index     = options.index     || false
@@ -30,7 +31,13 @@ module.exports = function(dirname, options) {
     })
     .forEach(function(file) {
       var required = require(dirname + '/' + file)
-      if(run)               required[run].apply(runScope, runArgs)
+      if(run) map = function(){
+        return required[run].apply(runScope, runArgs)
+      };
+      if(!map) map = function(){
+        return required;
+      }
+      required = map.call(required, required);
       if(format === "obj")  response[nameFrom(file)] = required
       if(format === "arr")  response.push(required)
       if(format === "list") response.push(file)
